@@ -1,3 +1,5 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css");
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +12,50 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.main {
+  display: flex;
+  
+
+  height: 100vh;
+
+}
+
+.side-bar{
+  background-color: #22092C;
+  color: #F05941;
+  height: 100vh;
+  width: 10%;
+  overflow-x: hidden;
+  display: flex;
+  padding-right: 1rem;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  
+}
+ul{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 2rem;
+  margin-top: 4rem;
+}
+ul li {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.thin-line {
+  border: none;
+  border-bottom: 1px solid #F05941; /* You can adjust the color (#000) and thickness (1px) as needed */
+  width: 100%;
+  margin:0;
+}
+
+ul li:hover{
+  color: #fff;
+  cursor: pointer;
 }
