@@ -27,7 +27,7 @@
     height: 100%;
     width: 100%;
     overflow-y: scroll;
-    padding: 0 20px;
+    padding: 20px 20px;
 
 }
 
@@ -61,6 +61,8 @@
 .coins-table thead {
     background-color: var(--tertiary-color);
     color: #fff;
+    border-top: 1px solid #ddd;
+    border-radius: 20px;
 }
 
 .coins-table thead th {
@@ -73,6 +75,7 @@
 
 .coins-table tbody tr:nth-child(even) {
     background-color: var(--main-color);
+    
 }
 .coins-table tbody tr:nth-child(odd) {
     background-color: var(--secondary-color);
