@@ -2,6 +2,8 @@ import SideBar from "./SideBar"
 import { useEffect, useState } from "react"
 import axios from "axios"
 import "../home.css"
+import { SpendingChart } from "./charts/Spending"
+import { EarningChart } from "./charts/EarningChart"
 
 const Home = () => {
   const [coins, setCoins] = useState([])
@@ -41,7 +43,15 @@ const Home = () => {
     <div className="main">
       <SideBar> </SideBar>
       <div className="Home">
-        <h1>Home</h1>
+        <h1>Overview & currency news</h1>
+        <div className="expenses-spending">
+          <div className="expenses">
+            <EarningChart />
+          </div>
+          <div className="spending">
+            <SpendingChart />
+          </div>
+        </div>
         <div className="table-container">
           <table className="coins-table">
             <thead>

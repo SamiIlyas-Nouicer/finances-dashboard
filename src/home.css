@@ -8,31 +8,54 @@
 .main {
     display: flex;
     height: 100vh;
-    overflow: hidden;
     width: 100vw;
 }
 
 .Home {
+    display: flex;
+    flex-direction: column;
     background-color: var(--main-color);
     color: #F0F0F0;
     height: 100vh;
     width: 100vw;
     overflow: hidden;
+    gap: 20px;
+    text-align: center;
 }
 
 .table-container {
     height: 100%;
     width: 100%;
     overflow-y: scroll;
+    padding: 0 20px;
+
 }
 
 .coins-table {
     width: 100%;
-    height: 100%;
     border-collapse: collapse;
     border-spacing: 0;
-    margin-top: 20px;
     overflow-y: auto;
+
+}
+
+.table-container::-webkit-scrollbar {
+    width: 12px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background-color: var(--tertiary-color);
+    border-radius: 10px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+    background-color: var(--tertiary-color-lighter);
+}
+
+/* Track on hover */
+.table-container::-webkit-scrollbar-track {
+    background-color: var(--secondary-color-lighter);
+    border: 1px solid var(--secondary-color);
 }
 
 .coins-table thead {
@@ -72,3 +95,19 @@
     height: 20px;
     margin-right: 10px;
 }
+.expenses-spending {
+    display: flex;
+    gap: 20px;
+    padding: 0 30px;
+    height: 100%;
+    width: 100%;
+  }
+
+.spending ,.expenses{
+    height: 100%;
+    width: 50%;
+    color: #ddd;
+    background-color: var(--quaternary-color);
+    border-radius: 10px;
+}
+
