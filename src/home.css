@@ -1,0 +1,74 @@
+:root {
+    --main-color: #21325E;
+    --secondary-color: #3E497A;
+    --tertiary-color: #F1D00A;
+    --quaternary-color: #F0F0F0;
+}
+
+.main {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    width: 100vw;
+}
+
+.Home {
+    background-color: var(--main-color);
+    color: #F0F0F0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.table-container {
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+}
+
+.coins-table {
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-top: 20px;
+    overflow-y: auto;
+}
+
+.coins-table thead {
+    background-color: var(--tertiary-color);
+    color: #fff;
+}
+
+.coins-table thead th {
+    padding: 10px;
+    font-weight: 500;
+    font-size: 14px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.coins-table tbody tr:nth-child(even) {
+    background-color: var(--main-color);
+}
+.coins-table tbody tr:nth-child(odd) {
+    background-color: var(--secondary-color);
+}
+
+
+.coins-table tbody tr td {
+    padding: 10px;
+    font-size: 14px;
+    text-align: left;
+}
+
+.coins-table tbody tr td .coin {
+    display: flex;
+    align-items: center;
+}
+
+.icon-table {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
