@@ -62,7 +62,6 @@
 .coins-table thead {
     background-color: var(--tertiary-color);
     color: #fff;
-    border-top: 1px solid #ddd;
     border-radius: 20px;
 }
 
@@ -103,7 +102,6 @@
     display: flex;
     gap: 20px;
     padding: 0 30px;
-    height: 100%;
     width: 100%;
     flex-wrap: nowrap;
     justify-content: center;
@@ -111,10 +109,9 @@
 }
 
 .spending ,.expenses{
-    height: 100%;
     border-radius: 10px;
     width: 49%;
+    display: flex;
     background-color: var(--secondary-color);
-
 }
 

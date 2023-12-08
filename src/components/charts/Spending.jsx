@@ -1,35 +1,50 @@
-import React from "react"
+// SpendingChart.jsx
 
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-} from "chart.js"
+import React from "react"
 import { Line } from "react-chartjs-2"
 import { faker } from "@faker-js/faker"
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-)
+const generateRandomData = () => {
+  return Array.from({ length: 12 }, () =>
+    faker.datatype.number({ min: 800, max: 5000 })
+  )
+}
 
-export const options = {
+const chartData = {
+  labels: [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ],
+  datasets: [
+    {
+      label: "dollars spent",
+      tension: 0.6,
+      data: generateRandomData(),
+      borderColor: "#F1D00A",
+      backgroundColor: "rgba(255, 255, 255, 0.2)",
+      borderWidth: 2,
+      yAxisID: "y",
+      fill: true,
+    },
+  ],
+}
+
+const options = {
   responsive: true,
   interaction: {
     mode: "index",
     intersect: false,
   },
-
   stacked: false,
   plugins: {
     title: {
@@ -42,7 +57,7 @@ export const options = {
       },
     },
     legend: {
-      display: false, // Set to false to hide the legend
+      display: false,
     },
   },
   scales: {
@@ -53,7 +68,6 @@ export const options = {
       },
       ticks: {
         color: "white",
-        // Change this color to your desired label color
       },
       display: false,
     },
@@ -65,57 +79,26 @@ export const options = {
       display: false,
       position: "left",
       ticks: {
-        color: "white", // Change this color to your desired label color
+        color: "white",
       },
     },
     y1: {
       grid: {
         display: false,
+        drawOnChartArea: false,
       },
       type: "linear",
       display: false,
       position: "right",
-      grid: {
-        drawOnChartArea: false,
-      },
       ticks: {
-        color: "white", // Change this color to your desired label color
+        color: "white",
       },
     },
   },
 }
 
-const labels = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "Septmeber",
-  "October",
-  "November",
-  "December",
-]
-
-export const data = {
-  labels,
-  datasets: [
-    {
-      tension: 0.6,
-      label: "$ spent",
-      data: labels.map(() => faker.datatype.number({ min: 800, max: 5000 })),
-      borderColor: "#F1D00A",
-      backgroundColor: "rgba(255, 255, 255, 0.1)",
-      yAxisID: "y",
-      fill: true,
-      borderWidth: 2,
-    },
-  ],
+const SpendingChart = () => {
+  return <Line data={chartData} options={options} />
 }
 
-export function SpendingChart() {
-  return <Line options={options} data={data} />
-}
+export default SpendingChart

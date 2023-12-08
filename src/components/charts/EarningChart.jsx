@@ -108,7 +108,7 @@ export const data = {
       label: "$ spent",
       data: labels.map(() => faker.datatype.number({ min: 800, max: 5000 })),
       borderColor: "#ffff",
-      backgroundColor: "rgba(255, 255, 255, 0.1)",
+      backgroundColor: "rgba(255, 255, 255, 0.2)",
       yAxisID: "y",
       fill: true,
       borderWidth: 2,

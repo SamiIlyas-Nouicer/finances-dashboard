@@ -2,7 +2,7 @@ import SideBar from "./SideBar"
 import { useEffect, useState } from "react"
 import axios from "axios"
 import "../home.css"
-import { SpendingChart } from "./charts/Spending"
+import SpendingChart from "./charts/Spending"
 import { EarningChart } from "./charts/EarningChart"
 
 const Home = () => {
