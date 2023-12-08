@@ -29,25 +29,57 @@ export const options = {
     mode: "index",
     intersect: false,
   },
+
   stacked: false,
   plugins: {
     title: {
       display: true,
       text: "Yearly Spending",
+      color: "#ffff",
+      font: {
+        size: 16,
+        weight: "bold",
+      },
+    },
+    legend: {
+      display: false, // Set to false to hide the legend
     },
   },
   scales: {
+    x: {
+      grid: {
+        display: false,
+        color: "#ffff",
+      },
+      ticks: {
+        color: "white",
+        // Change this color to your desired label color
+      },
+      display: false,
+    },
     y: {
+      grid: {
+        display: false,
+      },
       type: "linear",
-      display: true,
+      display: false,
       position: "left",
+      ticks: {
+        color: "white", // Change this color to your desired label color
+      },
     },
     y1: {
+      grid: {
+        display: false,
+      },
       type: "linear",
-      display: true,
+      display: false,
       position: "right",
       grid: {
         drawOnChartArea: false,
+      },
+      ticks: {
+        color: "white", // Change this color to your desired label color
       },
     },
   },
@@ -72,11 +104,14 @@ export const data = {
   labels,
   datasets: [
     {
+      tension: 0.6,
       label: "$ spent",
       data: labels.map(() => faker.datatype.number({ min: 800, max: 5000 })),
-      borderColor: "#451952",
-      backgroundColor: "#F39F5A",
+      borderColor: "#F1D00A",
+      backgroundColor: "rgba(255, 255, 255, 0.1)",
       yAxisID: "y",
+      fill: true,
+      borderWidth: 2,
     },
   ],
 }

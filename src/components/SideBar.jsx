@@ -1,10 +1,17 @@
-import React from "react"
+import { useState } from "react"
 import { Link } from "react-router-dom"
 
 function SideBar(props) {
+  const [sideBar, setSideBar] = useState(false)
   return (
-    <div className="side-bar">
+    <div className={sideBar ? "side-bar opened" : "side-bar"}>
       <div className="side-bar-items">
+        <button
+          className="side-bar-button"
+          onClick={() => setSideBar(!sideBar)}
+        >
+          <i class="bi bi-card-list"></i>
+        </button>
         <ul>
           <Link to="/">
             <li>

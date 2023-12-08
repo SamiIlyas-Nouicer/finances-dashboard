@@ -31,7 +31,7 @@ code {
 
 
 .side-bar{
-  background-color: var(--main-color) ;  
+  background-color: var(--secondary-color) ;  
   color: var(--quaternary-color);
   height: 100%;
   width: 3%;
@@ -42,6 +42,13 @@ code {
   padding-left: 0;
 }
 
+.side-bar-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
 
 
 ul{
@@ -49,7 +56,6 @@ ul{
   flex-direction: column;
   padding: 1rem;
   gap: 2rem;
-  margin-top: 4rem;
 }
 ul li {
   list-style: none;
@@ -75,13 +81,13 @@ ul li:hover{
  
 }
 
-.side-bar:hover {
+.side-bar.opened {
   width: 10%;
 }
-.side-bar:hover p{
+.side-bar.opened p{
   display: flex;
 }
-.side-bar:hover ul{
+.side-bar.opened ul{
   gap: 1rem;
 } 
 
@@ -90,4 +96,21 @@ ul li:hover{
   text-decoration: none;
   color: var(--quaternary-color);
   
+}
+
+.side-bar-button {
+  background-color: var(--secondary-color);
+  border: none;
+  color: var(--tertiary-color);
+  fill: #F1D00A;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: all ease-out 0.3s;
+}
+
+.side-bar-button:hover i {
+  color: var(--quaternary-color);
+  fill: var(--tertiary-color);
 }
