@@ -113,5 +113,6 @@
     width: 49%;
     display: flex;
     background-color: var(--secondary-color);
+    color: #fff;
 }
 

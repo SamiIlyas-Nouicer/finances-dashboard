@@ -1,8 +1,7 @@
-// SpendingChart.jsx
-
 import React from "react"
-import { Line } from "react-chartjs-2"
+import Chart from "react-apexcharts"
 import { faker } from "@faker-js/faker"
+import ReactApexChart from "react-apexcharts"
 
 const generateRandomData = () => {
   return Array.from({ length: 12 }, () =>
@@ -10,95 +9,132 @@ const generateRandomData = () => {
   )
 }
 
-const chartData = {
-  labels: [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ],
-  datasets: [
-    {
-      label: "dollars spent",
-      tension: 0.6,
-      data: generateRandomData(),
-      borderColor: "#F1D00A",
-      backgroundColor: "rgba(255, 255, 255, 0.2)",
-      borderWidth: 2,
-      yAxisID: "y",
-      fill: true,
-    },
-  ],
-}
+const labels = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "Septmeber",
+  "October",
+  "November",
+  "December",
+]
 
-const options = {
-  responsive: true,
-  interaction: {
-    mode: "index",
-    intersect: false,
-  },
-  stacked: false,
-  plugins: {
-    title: {
-      display: true,
-      text: "Yearly Spending",
-      color: "#ffff",
-      font: {
-        size: 16,
-        weight: "bold",
+const chartData = {
+  options: {
+    chart: {
+      height: "100%",
+      width: "100%",
+      toolbar: {
+        show: false,
+      },
+      type: "area",
+      zoom: {
+        enabled: false,
+      },
+      animations: {
+        enabled: true,
+        easing: "linear",
+        dynamicAnimation: {
+          speed: 2000,
+        },
+      },
+    },
+
+    colors: ["#F1D00A", "#ffff"],
+    dataLabels: {
+      enabled: false,
+    },
+    stroke: {
+      curve: "smooth",
+    },
+    grid: {
+      show: false,
+    },
+    xaxis: {
+      show: false,
+      categories: labels,
+      axisBorder: {
+        show: false,
+      },
+      axisTicks: {
+        show: false,
+      },
+      crosshairs: {
+        show: false,
+      },
+      tooltip: {
+        enabled: false,
+      },
+      labels: {
+        show: false,
+      },
+    },
+    yaxis: {
+      show: false,
+      axisBorder: {
+        show: false,
+      },
+      axisTicks: {
+        show: false,
+      },
+      labels: {
+        show: false,
+      },
+    },
+    tooltip: {
+      theme: "dark",
+      x: {
+        format: "dd/MM/yy HH:mm",
       },
     },
     legend: {
-      display: false,
-    },
-  },
-  scales: {
-    x: {
-      grid: {
-        display: false,
-        color: "#ffff",
+      show: true,
+      fontFamily: `'Roboto', sans-serif`,
+      position: "bottom",
+      offsetX: 10,
+      offsetY: 10,
+      labels: {
+        useSeriesColors: false,
+        colors: ["#fff", "#ffff"],
       },
-      ticks: {
-        color: "white",
+      markers: {
+        width: 16,
+        height: 16,
+        radius: 5,
       },
-      display: false,
-    },
-    y: {
-      grid: {
-        display: false,
-      },
-      type: "linear",
-      display: false,
-      position: "left",
-      ticks: {
-        color: "white",
-      },
-    },
-    y1: {
-      grid: {
-        display: false,
-        drawOnChartArea: false,
-      },
-      type: "linear",
-      display: false,
-      position: "right",
-      ticks: {
-        color: "white",
+      itemMargin: {
+        horizontal: 15,
+        vertical: 8,
       },
     },
   },
+
+  series: [
+    {
+      tooltip: {
+        theme: "dark",
+      },
+      name: "dollars spent",
+      data: labels.map(() => faker.datatype.number({ min: 800, max: 5000 })),
+    },
+  ],
 }
 
 const SpendingChart = () => {
-  return <Line data={chartData} options={options} />
+  return (
+    <ReactApexChart
+      options={chartData.options}
+      series={chartData.series}
+      type="area"
+      height="100%"
+      width="100%"
+    />
+  )
 }
 
 export default SpendingChart
